@@ -1,10 +1,11 @@
 # LaTeX temporary files
 *.aux
 *.bbl
-*.bldg
+*.blg
 *.fdb_latexmk
 *.fls
 *.log
 *.out
 *.synctex.gz
-*.pdf  # Only if you don't want to track PDFs
+*.tex 
+*.bib
