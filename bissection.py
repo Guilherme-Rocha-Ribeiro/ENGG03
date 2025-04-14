@@ -15,7 +15,7 @@ def bissection(a: float, b: float, tolerance = 0.001):
     while True:
       mid_pnt = (a+b)/2
       if abs(func(mid_pnt)) <= tolerance:
-        return -mid_pnt, mid_pnt
+        return mid_pnt
 
       if func(mid_pnt) * func(a) < 0:
         b = mid_pnt
