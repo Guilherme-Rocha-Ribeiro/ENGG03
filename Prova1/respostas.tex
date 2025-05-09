@@ -52,13 +52,12 @@ Assim, o valor encontrado em $x \approx 1.6057m$ na função $V(x) = 5x^3 - 12x^
 \end{quote}
 
 \subsection*{Análise do Método da Bisseção vs Newton-Raphson}
+Como o método da bisseção precisa de um intervalo bem definido para ser executado, no qual exista uma mudança de sinal, para que encontre a raiz, a sensibilidade desse método está no intervalo dado pelo usuário. Além disso, o método da bisseção demora mais para convergir, devido a sua natureza
+de ir dividindo e escolhendo os intervalos à direita ou à esquerda do variavel $midpoint$ a cada iteração. Para fins de comparação, o método de Newton-Raphson convergiu em 3 iterações, com um chute inicial próximo do intervalo, enquanto o método da bisseção demorou mais para convergir.
 \begin{itemize}
-\item $x \approx 1,\!6057$ (4 casas decimais) em 14 iterações 
-\item Comparação com Newton-Raphson: convergência em apenas 3 iterações com o chute inicial em $x_0 = 2.0$.
+\item Bisseção: $x \approx 1,\!6057$ (4 casas decimais) em 14 iterações 
+\item Newton-Raphson: $x \approx 1,\!6057$ convergência em apenas 3 iterações com o chute inicial em $x_0 = 2.0$.
 \end{itemize}
-
-
-
 
 
 
