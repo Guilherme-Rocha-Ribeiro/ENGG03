@@ -1,12 +1,12 @@
 # A função bissection(a , b) precisa receber um intervalo em que ocorre a mundança de sinal para poder encontrar uma unica raiz
-import numpy as np
+
 
 def func(x: float) -> float:
-  y = 2*np.square(x) - 8
+  y = 5*x**3 - 12*x**2 + 7*x - 1
   return float(y)
 
 
-def bissection(a: float, b: float, tolerance = 0.001):
+def bissection(a: float, b: float, tolerance = 10**-4):
   if func(a) * func(b) > 0:
     x = func(a)
     y = func(b)
@@ -25,4 +25,12 @@ def bissection(a: float, b: float, tolerance = 0.001):
     return mid_pnt
 
 if __name__ == '__main__':
-  print(bissection(3, 2.0))
+  zero_funcao = bissection(0, 2)
+  print(f'O zero da função é no ponto {zero_funcao:.4f}')
+
+
+""""
+O zero da função é no ponto 1.60565185546875
+
+
+"""
