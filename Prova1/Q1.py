@@ -64,27 +64,4 @@ if __name__ == '__main__':
 Aluno: Guilherme Rocha Ribeiro
 Referencias: https://uenf.br/cct/leciv/files/2016/02/Alexandre-Magno-Alves-de-Oliveira-e-Rodrigo-Moulin-Ribeiro-Pierrot.pdf
 
-Contexto: Durante o projeto de uma ponte, o ponto onde a força cortante V(x) se anula deve ser identificado para definir a posicição de máxima solicitação no pilar
-
-"A função da longarina é receber o carregamento do tabuleiro e das transversinas para distribuí-los a infraestrutura da ponte, ou seja, para os pilares 
-que por sua vez distribuem para a fundação. Os principais esforços que atuam na longarina é o esforço de flexão e o esforço de cisalhamento oriundos dos 
-momentos fletores e forças cortantes gerados pela solicitação de carregamento" (OLIVEIRA, PIEROTT, 2016, capitulo 3).
-
-"Superestrutura: É a parte útil da obra, por onde se trafega, constitui as vigas e lajes, responsável por receber as cargas da utilização e transmiti-las à meso e infraestrutura." (OLIVEIRA, PIEROTT, 2016, capitulo 1).
-
-"Mesoestrutura: São os pilares e elementos de apoio, tem como função receber as cargas da superestrutura e transmiti-las para a infraestrutura" (OLIVEIRA, PIEROTT, 2016, capitulo 4).
-
-
-Dito isso, o ponto que encontramos em x = 1,6057 m, dentro do intervalo dado, é aquele que a força cortante tende a um valor muito proximo de zero. Com isso,
-essa seria posição ideal para um pilar durante o dimensionamento da estrutura, para que o mesmo possa distribuir a carga entre a superestrtura eos outros 
-elementos de apoio, assim garantindo a estabilidade da ponte.
-
-
---- Analise do metodo de bisseção ---
-Alterando a precisão para 10**-4 como solicitado, o resultado é x ~ 1.6057 com 4 casas decimais. 
-
-Como o método da bisseção precisa de um intervalo bem definido para ser executado, o qual exista uma mudança de sinal, para que converja para a raiz. 
-Alem disso,  o metodo da bisseção demora mais para convergir, pois ele vai dividindo e escolhendo os intervalos a direita ou a esquerda do mid_point a 
-cada iteração. Como comparação, o método de Newton-Raphson convergiu em 3 iteração, com um chute inicial proximo do intervalo, enquanto o método da bisseção convergiu em 14 iterações.
-
 """

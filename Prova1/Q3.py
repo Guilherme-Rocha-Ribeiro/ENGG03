@@ -79,19 +79,19 @@ def metodo_newton_sistemas(guess_inicial_vetor: list[float], iteracoes=100, tole
     print(f"Solução não encontrada após {iteracoes} iterações.")
     return None
 
+
 if __name__ == '__main__':
     guess_inicial = [1.0, 2.0]  # Estimativa inicial
     raiz = metodo_newton_sistemas(guess_inicial)
+    raiz_scipy = root(sistema_funcoes, guess_inicial, jac=jacobiano, method='hybr')
+    
+    if raiz is not None and raiz_scipy.success:
+    
+        print("\nComparação das soluções:")
+        print(f"Solução Implementação: {raiz}")
+        print(f"Solução do SciPy:      {raiz_scipy.x}")
 
 """
 Aluno: Guilherme Rocha Ribeiro
-Referencias: https://wwwp.fc.unesp.br/~adriana/Numerico/SNLinear.pdf , https://sistemas.eel.usp.br/docentes/arquivos/519033/LOM3026/Metodos_numericos_calculo_sistemas_equacoes_nao_lineares.pdf
-
-
-
-
-
-
-
-
+Referencias para o codigo: https://wwwp.fc.unesp.br/~adriana/Numerico/SNLinear.pdf , https://sistemas.eel.usp.br/docentes/arquivos/519033/LOM3026/Metodos_numericos_calculo_sistemas_equacoes_nao_lineares.pdf
 """

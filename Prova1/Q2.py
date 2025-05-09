@@ -66,20 +66,13 @@ if __name__ == '__main__':
     
     B = np.array([[18], [8], [10]])
     resultado = eliminacao_gauss(A, B)
-    resutlado_numpy = linalg_solver(A, B)
+    resultado_numpy = linalg_solver(A, B)
     print("\nSolução pelo Método de Gauss:", resultado)
-    print("\nSolução do numpy (verificação):\n", resutlado_numpy)
+    print("\nSolução do numpy (verificação):\n", resultado_numpy)
     
 """
 Aluno: Guilherme Rocha Ribeiro
 Referencias do codigo: https://www.youtube.com/watch?v=PCkLz5-vo3U , https://www.youtube.com/watch?v=gAmMxdI0EKs
-
-
-
-
-
-
-
 
 """
     
