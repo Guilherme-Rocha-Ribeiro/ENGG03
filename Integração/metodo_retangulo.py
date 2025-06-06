@@ -48,16 +48,13 @@ def leftRiemannSums(lower_bound ,upper_bound, steps = 1000):
 
     
 def MiddleRiemannSums(lower_bound ,upper_bound, steps = 1000):
-
-
-
-
+    pass
 
 
 
 if __name__ == '__main__':
     # plot variables 
-    area = leftRiemannSums(lower_bound = 2, upper_bound = 6, steps = 1000)
+    area = leftRiemannSums(lower_bound = 2, upper_bound = 6, steps = 10)
     print(f"Área aproximada: {area}")
 
 
