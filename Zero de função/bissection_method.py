@@ -1,6 +1,5 @@
 # A função bissection(a , b) precisa receber um intervalo em que ocorre a mundança de sinal para poder encontrar uma unica raiz
 
-
 def func(x: float) -> float:
   y = 5*x**3 - 12*x**2 + 7*x - 1
   return float(y)
@@ -29,8 +28,3 @@ if __name__ == '__main__':
   print(f'O zero da função é no ponto {zero_funcao:.4f}')
 
 
-""""
-O zero da função é no ponto 1.60565185546875
-
-
-"""

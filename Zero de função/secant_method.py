@@ -1,4 +1,3 @@
-# o Metodo da secante pega dois pontos iniciais a e b 
 def func(x: float) -> float:
   y = 2*x**2 - 8
   return float(y)
