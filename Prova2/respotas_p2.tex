@@ -136,9 +136,25 @@ O método RK4 é mais "suave" em relação ao comportamento do sistema ao decorr
 
 \section*{Questão 2: Análise de métodos de integração numérica}
 \justifying
-\subsection*{Contexto e Metodologia}
+\subsection*{Resultados}
+\begin{figure}[H]
+        \centering
+        \includegraphics[width=1.0\textwidth, height=0.4\textheight, keepaspectratio]{Q2_resultados.png}
+        \caption{Plotagem da integral da função}\label{fig:Q2_resultado}
+\end{figure}
 
+\begin{itemize}
+    \item $P(t) = 0.0000 + 10.2500\,t - 1.6250\,t^2 + 0.1250\,t^3$
+    \item $P(4.5) = 24.6094$ W (Watts)
+    \item \textbf{Área sob o gráfico} = 107.9997 $\approx 108\ $ J (Joules)
+\end{itemize}
 
+A interpolação polinomial é amplamente utilizada em problemas de engenharia onde se necessita estimar valores intermediários entre dados experimentais, pois ela permite encontrar um curva que descreve a passagem pelos dados experimentais.
+
+\subsection*{Aplicações na Engenharia Elétrica}
+\justifying
+Na engenharia elétrica, a interpolação é essencial para a análise de eficiência energética e caracterização de componentes. Dispositivos semicondutores, como diodos e transistores, e fontes de energia, como painéis fotovoltaicos, possuem curvas de operação não lineares 
+(e.g., curvas de Corrente vs. Tensão, I-V). A partir de um conjunto discreto de medições experimentais, a interpolação polinomial permite construir uma função contínua que modela o comportamento do dispositivo em qualquer ponto de operação.
 
 \section*{Questão 3:  Calculo de esforço total em fundacão com integração numérica}
 \justifying
@@ -217,7 +233,7 @@ Foram testadas quatro quantidades distintas de subdivisões (n = 4, 20 e 100) e 
 \vspace{2cm}
 
 \subsection*{Análise de Convergência}
-Foi utilizado o seguinte scprit em Python para identificar os valores de n mínimo para atingir uma convergência com uma tolerancia de 1e-5. Com ele foi possível encontrar os valores de n, os quais mostram que, para essa função o método de Simpson 1/3 precisou de uma quantidade menor de passos para chegar ao valor númerico da área sob o gráfico dentro do intervalo
+Foi utilizado a seguinte função para identificar os valores de n mínimo para atingir a convergência com uma tolerancia de 1e-5. Com ele foi possível encontrar os valores de n, os quais mostram que, para essa função $f(x) = 150 + 30\sin(\frac{\pi x}{3})$ o método de Simpson 1/3 precisou de uma quantidade menor de passos para atingir o valor númerico da integral dentro do intervalo.
 \begin{figure}[H]
     \begin{lstlisting}[caption={Função para encontrar o número mínimo de passos para convergência.}, label={lst:find_steps}]
         def find_min_steps(
