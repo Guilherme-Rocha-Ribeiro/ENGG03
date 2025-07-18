@@ -20,7 +20,7 @@ H_estatica = 10     # m (altura estática que a bomba precisa vencer - diferenç
 
 # Parâmetros de Otimização e Custo
 D_min = 0.03        # m (Diâmetro mínimo a ser considerado para otimização)
-D_max = 0.1       # m (Diâmetro máximo a ser considerado para otimização)
+D_max = 0.30       # m (Diâmetro máximo a ser considerado para otimização)
 num_pontos = 100  # Número de pontos discretos de diâmetro para avaliação
 # Criação de um array com diâmetros uniformemente espaçados entre D_min e D_max
 D_variavel = np.linspace(D_min, D_max, num_pontos)

@@ -23,9 +23,14 @@
     \begin{titlepage}
         \centering
         
-        \vspace*{1.5cm}
+        
         
         \textbf{\large UNIVERSIDADE FEDERAL DA BAHIA} \\
+        \vspace*{1.5cm}
+        \includegraphics[width=1.0\textwidth, height=0.4\textheight, keepaspectratio]{brasao_ufba.jpg}
+
+
+
         \textbf{\large ESCOLA POLITÉCNICA} \\
         \textbf{\large DEPARTAMENTO DE ENGENHARIA QUÍMICA} \\
         
@@ -65,11 +70,11 @@
     \section{Metodologia e Modelagem}
 
         \subsection{Descrição do Problema e Escolhas de Modelagem}
-        O sistema em análise consiste no bombeamento de biodiesel através de uma tubulação de aço horizontal de $50~\mathrm{m}$ de comprimento. Além disso, O fluido precisa vencer uma altura estática de $10~\mathrm{m}$, representando a diferença de elevação a ser superada no ponto de descarga. O problema apresetado consiste em encontrar o valor do diâmetro dentro do intervalo de 0.03 m e 0.1 m que minimiza o custo total da operação.
+        O sistema em análise consiste no bombeamento de biodiesel através de uma tubulação de aço horizontal de $50~\mathrm{m}$ de comprimento. Além disso, O fluido precisa vencer uma altura estática de $10~\mathrm{m}$, representando a diferença de elevação a ser superada no ponto de descarga. O problema apresetado consiste em encontrar o valor do diâmetro dentro do intervalo de 0.03 m e 0.3 m que minimiza o custo total da operação.
 
         \subsubsection{Escolhas Metodológicas}
         \begin{itemize}
-            \item \textbf{Análise Discreta de Diâmetros:} Em vez de uma otimização contínua, optou-se por avaliar um intervalo de diâmetros comerciais plausíveis (de $0.03~\mathrm{m}$ a $0.1~\mathrm{m}$) em 100 pontos distintos.
+            \item \textbf{Análise Discreta de Diâmetros:} Em vez de uma otimização contínua, optou-se por avaliar um intervalo de diâmetros comerciais plausíveis (de $0.03~\mathrm{m}$ a $0.3~\mathrm{m}$) em 100 pontos distintos.
             \item \textbf{Equação de Swamee-Jain:} Para o cálculo do fator de atrito, foi escolhida a equação explícita de Swamee-Jain. Esta fórmula oferece uma aproximação da equação implícita de Colebrook-White para escoamento turbulento e evita a necessidade de solucionadores iterativos, simplificando o código. Embora seja mais precisa para $Re > 4000$, sua aplicação em toda a faixa de diâmetros foi considerada uma simplificação razoável. \cite{Swamee}
             \item \textbf{Modelo de Custo:} O custo da tubulação foi modelado como uma função quadrática do diâmetro ($C \propto D^2$), representando uma aproximação onde o custo é proporcional ao volume de material. O custo de energia foi calculado com base na operação contínua da bomba ao longo de um ano (8760 horas).
         \end{itemize}
@@ -129,7 +134,7 @@
             \[ P = \frac{\rho g Q H}{\eta} \]
 
             \item \textbf{Custo Anual Total ($C_{\text{total}}$):} Soma dos custos de capital e operacionais.
-            \[ C_{\text{total}}(D) = \underbrace{(3000 \cdot D^2 \cdot L)}_{\text{Custo Tubulação}} + \underbrace{\left( \frac{P(D)}{1000} \cdot 8760 \cdot 0.70 \right)}_{\text{Custo Energia Anual}} \]
+            \[ C_{\text{total}}(D) = \underbrace{(300 \cdot D^2 \cdot L)}_{\text{Custo Tubulação}} + \underbrace{\left( \frac{P(D)}{1000} \cdot 8760 \cdot 0.70 \right)}_{\text{Custo Energia Anual}} \]
         \end{enumerate}
 
 
@@ -182,8 +187,8 @@
             A análise gráfica, permite a identificação dos seguintes pontos
             \begin{itemize}
                 \item \textbf{Diâmetros próximos de 0.03 m:} Nesta faixa, o custo total é máximo. Visto que, diâmetros menores implicam em velocidades de escoamento muito mais altas. Como a perda de carga por atrito é proporcional ao quadrado da velocidade ($h_f \propto v^2$), ela aumenta drasticamente, exigindo uma potência de bombeamento oque torna o custo inviável para operações com diâmetros próximos e essa faixa do intervalo.
-                \item \textbf{Diâmetr ideal de 0.0922 m} Ponto encontrado onde é minimizada o custo, potência necessaria e o valor do atrito do fluido com a tubulação
-                \item \textbf{Diâmetros na faixa superior (>0.0922 m):}  Acima do ótimo, o custo da tubulação cresce quadraticamente (R\$ 300·D²)
+                \item \textbf{Diâmetro ideal de 0.0922 m} Ponto encontrado onde é minimizada o custo, potência necessaria e o valor do atrito do fluido com a tubulação
+                \item \textbf{Diâmetros na faixa superior (>0.0922 m):}  Acima do ótimo, o custo da tubulação cresce quadraticamente ($300 \cdot D^2 \cdot L$)
             \end{itemize}
 
     \section{Conclusão}
