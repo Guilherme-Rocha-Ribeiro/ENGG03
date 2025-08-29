@@ -1,0 +1,146 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[brazil]{babel}
+\usepackage{geometry}
+\usepackage{amsmath}
+\usepackage{ragged2e}
+\usepackage{graphicx}
+
+% Hyperref deve ser um dos últimos pacotes carregados
+\usepackage[colorlinks=true, 
+            linkcolor=blue, 
+            urlcolor=blue, 
+            citecolor=blue]{hyperref}
+
+\geometry{a4paper, left=3cm, right=2cm, top=3cm, bottom=2cm}
+\setlength{\parindent}{1.25cm}
+
+
+\begin{document}
+
+\begin{titlepage}
+    \centering
+    
+    \includegraphics[width=0.4\textwidth]{brasao_ufba.jpg} \\
+    \vspace{1cm}
+    
+    \textbf{\large UNIVERSIDADE FEDERAL DA BAHIA} \\
+    \vspace{12cm}
+    
+    \textbf{\large Salvador - BA} \\
+    \textbf{\large 2025}
+\end{titlepage}
+
+
+
+
+\begin{center}
+\large\textbf{Avaliação 1 - Métodos Numéricos - 2025.1} \\
+\end{center}
+
+\begin{flushleft}
+Aluno: Guilherme Rocha Ribeiro \\
+Professor: Reiner Requião \\
+Matéria: ENGG03
+\end{flushleft}
+
+\section*{Questão 1: Localização de ponto crítico em uma ponte}
+\justifying
+
+\subsection*{Análise do contexto e Resultados}
+"A função da longarina é receber o carregamento do tabuleiro e das transversinas para distribuí-los a infraestrutura da ponte, ou seja, para os pilares 
+que por sua vez distribuem para a fundação. Os principais esforços que atuam na longarina é o esforço de flexão e o esforço de cisalhamento oriundos dos 
+momentos fletores e forças cortantes gerados pela solicitação de carregamento"\cite{oliveira2016}(Capítulo 3). Nesse contexto, os esforços sofridos pela longarina são determinantes para a estabilidade estrutural e dispersão de cargas entre as meso e infraestrutura.
+Assim, o valor encontrado em $x \approx 1.6057m$ na função $V(x) = 5x^3 - 12x^2 + 7x - 1$ representa o ponto onde a força cortante tende a zero, Essa posição é ideal para o posicionamento de um pilar, pois:
+
+\begin{itemize}
+\item Distribuição eficiente de cargas superestrutura transmite as cargas à mesoestrutura, que as conduz à infraestrutura. Um pilar nessa posição otimiza essa transmissão.
+\item Minimiza tensões na longarina, evitando falhas estruturais. A força cortante nula indica que a longarina não está sujeita a esforços excessivos nesse ponto.
+\end{itemize}
+
+
+\begin{quote}
+"Mesoestrutura: São os pilares e elementos de apoio, tem como função receber as cargas da superestrutura e transmiti-las para a infraestrutura." ( OLIVEIRA, A, M. ; PIEROTT, R, M - Capítulo 4) \cite{oliveira2016}   
+\end{quote}
+
+\begin{quote}
+"Superestrutura: É a parte útil da obra, por onde se trafega, constitui as vigas e lajes, responsável por receber as cargas da utilização e transmiti-las à meso e infraestrutura." ( OLIVEIRA, A, M. ; PIEROTT, R, M - Capítulo 1) \cite{oliveira2016}
+\end{quote}
+
+\subsection*{Análise do Método da Bisseção vs Newton-Raphson}
+Como o método da bisseção precisa de um intervalo bem definido para ser executado, no qual exista uma mudança de sinal, para que encontre a raiz, a sensibilidade desse método está no intervalo dado pelo usuário. Além disso, o método da bisseção demora mais para convergir, devido a sua natureza
+de ir dividindo e escolhendo os intervalos à direita ou à esquerda do variavel $midpoint$ a cada iteração. Para fins de comparação, o método de Newton-Raphson convergiu em 3 iterações, com um chute inicial próximo do intervalo, enquanto o método da bisseção demorou mais para convergir.
+\begin{itemize}
+\item Bisseção: $x \approx 1,\!6057$ (4 casas decimais) em 14 iterações 
+\item Newton-Raphson: $x \approx 1,\!6057$ convergência em apenas 3 iterações com o chute inicial em $x_0 = 2.0$.
+\end{itemize}
+
+
+
+\section*{Questão 2: Vazão em sistema de tubulações}
+\subsection*{Equação linear e Resultados do método de Gauss}
+\begin{align*}
+3q_1 + q_2 + 2q_3 &= 18 \\
+2q_1 - q_2 + q_3 &= 8 \\
+q_1 + 4q_2 - q_3 &= 10
+\end{align*}
+
+\begin{itemize}
+\item q1 = 4.0
+\item q2 = 2.0
+\item q3 = 2.0
+\end{itemize}
+
+
+\subsection*{Coerência Física}
+Como o sistema traz uma equação de conservação de massa e energia, os valores do resultado dessa matriz serem positivos e reais é um indicativo de que o sistema é fisicamente coerente.
+
+\subsection*{Método de Eliminação de Gauss}
+É um método direto de resolução de sistemas lineares, o qual gera a matriz aumentada do sistema e a coloca na forma de uma matriz triangular superior. Devido ao pivoteamento feito na sessão do código "verificação pivo != 0", essa implementação é mais estável numéricamente do que a apresentada no vídeo \cite{Gauss}, a qual não realiza 
+pivoteamento parcial, assim garantindo que o algoritmo não falhe em casos de matrizes que tenham solução, mas que apresentam o elemento matriz[0][0] = 0.
+
+\subsection*{Complexidade}
+\begin{itemize}
+\item Complexidade: $\mathcal{O}(n^3)$ para matrizes $n \times n$
+\item Vantagem: Pivoteamento parcial evita falhas quando $a_{11} = 0$
+\item Estabilidade numérica superior à implementação sem pivoteamento
+\end{itemize}
+
+
+\section*{Questão 3: Sistema não lineare em reações industriais}
+\begin{equation}\label{eq:sistema}
+\begin{cases}
+xy + y^2 - 10 = 0 \\
+x^2 - \ln(y+1) - 2 = 0 \\
+\end{cases}
+\end{equation}
+
+\subsection*{Resultados do método de Newton-Raphson}
+
+
+
+\begin{itemize}
+\item Aproximação inicial: $x_0 = [1.0, 2.0]$
+\item Solução $X =[1.7946, 2.3898]$
+\end{itemize}
+\subsection*{Sensibilidade ao ponto inicial e aplicabilidade}
+Como o método de Newton-Raphson é iterativo, a escolha do ponto inicial influencia diretamente na convergência e na velocidade de convergência. Visto que, pontos mais próximos da raiz tendem a convergir mais rapidamente, 
+enquanto pontos mais distantes podem levar à divergência do método.
+Além disso, também é necessário lidar com os domínios das funções separadamente, como no caso da função \begin{equation*}\ln(y+1) > 0 \implies y > -1\end{equation*} 
+Assim, evitando que a divergência ocorra devido a valores indefinidos da função e não por falha do método em si. Entretanto, a sua aplicabilidade não é prejudicada por essa sensibilidade, porque os sistemas de equações não lineares na engenharia 
+frequentemente derivam de modelos físicos ou matemáticos com base em fenômenos reais. Assim, é possível fazer uma análise prévia do sistema e escolher uma aproximação inicial plausíve para aplicá-lo ao método.
+
+
+\begin{thebibliography}{9}
+\bibitem{oliveira2016} 
+OLIVEIRA, A, M. ; PIEROTT, R, M.
+\textit{Análise Estrutural de Pontes}. 
+UENF, 2016. Disponível em: \url{https://uenf.br/cct/leciv/files/2016/02/Alexandre-Magno-Alves-de-Oliveira-e-Rodrigo-Moulin-Ribeiro-Pierrot.pdf}
+
+\bibitem{Gauss}
+\textsc{Numerical Methods}. \textit{Gaussian Elimination In Python}. YouTube, Disponível em: \url{https://www.youtube.com/watch?v=gAmMxdI0EKs}.
+
+\end{thebibliography}
+
+\end{document}
